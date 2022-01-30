@@ -1,0 +1,3 @@
+
+Number of purchased Ticket -  1
+price -  200

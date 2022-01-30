@@ -1,0 +1,6 @@
+Number of purchased Ticket -  1
+price -  200
+Number of purchased Ticket -  2
+price -  200
+Number of purchased Ticket -  1
+price -  200
