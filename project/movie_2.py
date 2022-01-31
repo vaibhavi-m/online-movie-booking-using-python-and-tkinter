@@ -17,6 +17,7 @@ print('\nWelcome to Online movie ticket booking system. Please choose an option:
 box = tkinter.Tk()
 box.withdraw()
 
+
 class chart:
 
     @staticmethod
@@ -34,14 +35,62 @@ class_call = chart
 table_of_chart = class_call.chart_maker()
 
 
+def movie():
+    import tkinter
+
+    def a():
+        global select
+        select = 'Spider-man No Way Home'
+        img.quit()
+        img.destroy()
+
+    def b():
+        global select
+        select = 'Atrangi Re'
+        img.quit()
+        img.destroy()
+
+    def c():
+        global select
+        select = 'Blacklight'
+        img.quit()
+        img.destroy()
+        img.quit()
+
+    def d():
+        global select
+        select = 'Pushpa'
+        img.destroy()
+
+    img = tkinter.Toplevel()
+    img.geometry("1280x800")
+
+    bg = tkinter.PhotoImage(file="Movies_1_.ppm")
+
+    canvas1 = tkinter.Canvas(img, width=1280,
+                             height=800)
+
+    canvas1.pack(fill="both", expand=True)
+
+    canvas1.create_image(0, 0, image=bg,
+                         anchor="nw")
+    button1 = tkinter.Button(img, text="Select", bg='black', fg='white', command=a)
+    button2 = tkinter.Button(img, text="Select", bg='black', fg='white', command=b)
+    button3 = tkinter.Button(img, text="Select", bg='black', fg='white', command=c)
+    button4 = tkinter.Button(img, text="Select", bg='black', fg='white', command=d)
+
+    button1_canvas = canvas1.create_window(320, 350, anchor="nw", window=button1)
+    button2_canvas = canvas1.create_window(960, 350, anchor="nw", window=button2)
+    button3_canvas = canvas1.create_window(320, 750, anchor="nw", window=button3)
+    button4_canvas = canvas1.create_window(960, 750, anchor="nw", window=button4)
+
+    img.mainloop()
+
+
 def repeat():
     global x
     global Booked_seat
-    print("PLEASE ENTER THE MOVIE YOU WANT TO WATCH\n 1.SPIDERMAN\n 2.ATRANGI RE\n 3.BLACKLIGHT\n 4.PUSHPA")
-    select=input()
     while x != 0:
-        #print("PLEASE ENTER THE MOVIE YOU WANT TO WATCH")
-        #select=input("\n 1.SPIDERMAN\n 2.ATRANGI RE\n 3.BLACKLIGHT\n 4.PUSHPA")
         print('\n1 for Show the seats \n2 for Buy a Ticket \n3 for Statistics ',
               '\n4 for Show booked Tickets User Info \n0 for Exit')
         x = int(input('Select Option - '))
@@ -72,6 +121,8 @@ def repeat():
                     confirm = messagebox.askyesno("Do you wish to book a ticket?", "Do you wish to book a ticket?")
                     person_detail = {}
                     if confirm:
+                        movie()
+                        print("You've selected:", select)
                         person_detail['Name'] = input('Enter Name - ')
                         person_detail['Gender'] = input('Enter Gender - ')
                         person_detail['Age'] = input('Enter Age - ')
@@ -131,7 +182,8 @@ def repeat():
                                               font=("Comic Sans MS", 10), fill='black')
                     text = canvas.create_text((225, 195), text="Contact:    " + person["Phone_No"],
                                               font=("Comic Sans MS", 10), fill='black')
-                    text=canvas.create_text((245,210),text="Movie:"+select,font=("Comic Sans MS", 10),fill='black')
+                    text = canvas.create_text((245, 210), text="Movie:" + select, font=("Comic Sans MS", 10),
+                                              fill='black')
                     c = messagebox.askyesno("Ask", "Do you wanna continue?")
                     if c:
                         print(repeat())
