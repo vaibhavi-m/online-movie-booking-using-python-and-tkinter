@@ -55,11 +55,11 @@ def movie():
         select = 'Blacklight'
         img.quit()
         img.destroy()
-        img.quit()
 
     def d():
         global select
         select = 'Pushpa'
+        img.quit()
         img.destroy()
 
     img = tkinter.Toplevel()
